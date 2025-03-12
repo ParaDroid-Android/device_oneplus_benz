@@ -19,6 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'device/oneplus/benz',
     'vendor/oneplus/benz',
     'hardware/qcom-caf/sm8550',
     'hardware/qcom-caf/wlan',
@@ -78,7 +79,7 @@ blob_fixups: blob_fixups_user_type = {
     'odm/etc/camera/CameraHWConfiguration.config': blob_fixup()
         .regex_replace('SystemCamera =  0;  0;  1;  1;', 'SystemCamera =  0;  0;  0;  0;'),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
-        .add_needed("libshims_aidl_fingerprint_v2.oplus.so"),
+        .add_needed("libshims_aidl_fingerprint_v2.benz.so"),
     'odm/bin/hw/vendor-oplus-hardware-performance-V1-service': blob_fixup()
         .add_needed('libbase_shim.so')
         .add_needed('libprocessgroup_shim.so'),
