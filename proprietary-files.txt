@@ -2547,7 +2547,7 @@ odm/firmware/ufs/ufs_version_config.xml
 
 # Vibrator
 odm/etc/aac_richtap.config
-vendor/lib64/libaacvibrator.so
+vendor/lib64/libaacvibrator.so:vendor/lib64/libaacvibrator-benz.so;FIX_SONAME
 odm/firmware/tp/23801/FW_S3910_BOE.img
 odm/firmware/tp/23801/FW_S3910_BOE_FAE.img
 odm/firmware/tp/23801/FW_S3910_BOE_HBP.img
