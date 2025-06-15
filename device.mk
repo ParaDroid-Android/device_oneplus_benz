@@ -1,6 +1,5 @@
 #
 # Copyright (C) 2021-2025 The LineageOS Project
-#
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -127,9 +126,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service.rc \
     vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.demura-service
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/display_id_4630946342906530435.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946342906530435.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
