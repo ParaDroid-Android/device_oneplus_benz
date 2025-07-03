@@ -192,8 +192,6 @@ PRODUCT_PACKAGES += \
     fstab.default \
     fstab.default.vendor_ramdisk \
     init.class_main.sh \
-    init.kernel.post_boot.sh \
-    init.kernel.post_boot-kalama.sh \
     init.oplus.hw.rc \
     init.oplus.hw.rc.recovery \
     init.oplus.rc \
@@ -205,6 +203,15 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.oplus.rc \
     ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/crow/init.kernel.post_boot.sh:vendor/bin/init.kernel.post_boot.sh
+
+PRODUCT_PACKAGES += \
+    init.kernel.post_boot-crow.sh \
+    init.kernel.post_boot-crow_4_2_1.sh \
+    init.kernel.post_boot-crow_4_3_0.sh \
+    init.kernel.post_boot-crow_default_4_3_1.sh
 
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_oplus)
 
