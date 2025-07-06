@@ -19,7 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'vendor/oneplus/salami',
+    'vendor/oneplus/benz',
     'hardware/qcom-caf/sm8550',
     'hardware/qcom-caf/wlan',
     'hardware/oplus',
@@ -130,7 +130,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'salami',
+    'benz',
     'oneplus',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,

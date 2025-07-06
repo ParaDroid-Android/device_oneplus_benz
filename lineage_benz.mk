@@ -8,24 +8,27 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from salami device
-$(call inherit-product, device/oneplus/salami/device.mk)
+# Inherit from benz device
+$(call inherit-product, device/oneplus/benz/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_salami
-PRODUCT_DEVICE := salami
+# Platform
+TARGET_BOARD_PLATFORM := crow
+
+PRODUCT_NAME := lineage_benz
+PRODUCT_DEVICE := benz
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := CPH2449
+PRODUCT_MODEL := CPH2613
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="CPH2449EEA-user 15 TP1A.220905.001 T.R4T3.1db7378-31ae-31b0 release-keys" \
-    BuildFingerprint=OnePlus/CPH2449EEA/OP594DL1:15/TP1A.220905.001/T.R4T3.1db7378-31ae-31b0:user/release-keys \
-    DeviceName=OP594DL1 \
-    DeviceProduct=CPH2449 \
-    SystemDevice=OP594DL1 \
-    SystemName=CPH2449
+    BuildDesc="CPH2613IN-user 15 TP1A.220905.001 U.R4T2.1e365fd-1dbce_38ba release-keys" \
+    BuildFingerprint=OnePlus/CPH2613IN/OP5D3FL1:15/TP1A.220905.001/U.R4T2.1e365fd-1dbce_38ba:user/release-keys \
+    DeviceName=OP5D3FL1 \
+    DeviceProduct=CPH2613 \
+    SystemDevice=OP5D3FL1 \
+    SystemName=CPH2613

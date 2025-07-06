@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/oneplus/salami
+DEVICE_PATH := device/oneplus/benz
 
 # A/B
 AB_OTA_UPDATER := true
@@ -37,7 +37,7 @@ TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := OP591BL1,OP594DL1
+TARGET_OTA_ASSERT_DEVICE := OP5D3FL1
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -59,7 +59,7 @@ TARGET_PROVIDES_LIBAGM := true
 TARGET_PROVIDES_LIBAR_PAL := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := kalama
+TARGET_BOOTLOADER_BOARD_NAME := $(TARGET_BOARD_PLATFORM)
 
 # Boot
 BOARD_BOOT_HEADER_VERSION := 4
@@ -67,7 +67,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 
 # Display
-TARGET_SCREEN_DENSITY := 450
+TARGET_SCREEN_DENSITY := 420
 
 # DTB / DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -101,11 +101,11 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 
-TARGET_KERNEL_CONFIG += vendor/oplus/salami.config
+TARGET_KERNEL_CONFIG += vendor/oplus/benz.config
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8550
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
-    vendor/kalama_GKI.config \
+    vendor/oplus/$(TARGET_BOARD_PLATFORM)_GKI.config \
     vendor/oplus/kalama_GKI.config \
     vendor/debugfs.config
 
@@ -119,6 +119,11 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/m
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.first_stage $(DEVICE_PATH)/modules.load.recovery))
 BOOT_KERNEL_MODULES := $(strip $(shell cat $(DEVICE_PATH)/modules.include.vendor_ramdisk $(DEVICE_PATH)/modules.load.first_stage $(DEVICE_PATH)/modules.load.recovery))
 SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(DEVICE_PATH)/modules.include.system_dlkm))
+
+BOARD_VENDOR_KERNEL_MODULES_LOAD += qca_cld3_qca6750.ko $(strip $(shell cat $(DEVICE_PATH)/modules.load.crow))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD += $(strip $(shell cat $(DEVICE_PATH)/modules.load.first_stage.crow))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD += $(strip $(shell cat $(DEVICE_PATH)/modules.load.first_stage.crow $(DEVICE_PATH)/modules.load.recovery.crow))
+BOOT_KERNEL_MODULES += $(strip $(shell cat $(DEVICE_PATH)/modules.load.first_stage.crow $(DEVICE_PATH)/modules.load.recovery.crow))
 
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/oneplus/sm8550-modules
 TARGET_KERNEL_EXT_MODULES := \
@@ -149,7 +154,6 @@ TARGET_KERNEL_EXT_MODULES := \
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := kalama
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -258,4 +262,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include the proprietary files BoardConfig.
-include vendor/oneplus/salami/BoardConfigVendor.mk
+include vendor/oneplus/benz/BoardConfigVendor.mk
